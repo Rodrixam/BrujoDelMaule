@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Anchor
   - CrossCollider
+  - Salt
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
-  - 
+  - Interactable
+  - NonInteractable
+  - NonReflective
   - 
   - 
   - 

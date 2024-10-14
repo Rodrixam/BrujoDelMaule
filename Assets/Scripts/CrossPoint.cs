@@ -41,7 +41,6 @@ public class CrossPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ola");
         if (other.tag.Equals("CrossCollider"))
         {
             _completed = true;

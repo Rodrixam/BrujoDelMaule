@@ -12,18 +12,29 @@ public class CrossController : MonoBehaviour
     CrossPoint up, down, left, right;
     CrossPoint[] _crossPoints;
 
-    int pointIndex = 0;
-    bool buttonPressed = false;
+    [SerializeField]
+    InputAction _action;
 
     [SerializeField]
     UnityEvent CrossMimic = new UnityEvent();
 
-    [SerializeField]
-    InputAction _action;
+    int pointIndex = 0;
+    bool buttonPressed = false;
+    public bool canMimic = true;
 
-    // Start is called before the first frame update
+
+    private void OnEnable()
+    {
+        _action.Enable();
+    }
+    private void OnDisable()
+    {
+        _action.Disable();
+    }
+
     void Start()
     {
+        //Deactivates all points
         _crossPoints = new CrossPoint[4] { up, down, left, right };
         foreach(CrossPoint cs in _crossPoints)
         {
@@ -31,29 +42,20 @@ public class CrossController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        _action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        _action.Disable();
-    }
-
-
     void Update()
     {
-        if (_action.ReadValue<float>() == 1)
+        //Get input value
+        if (!buttonPressed && _action.ReadValue<float>() == 1)
         {
             PressButton();
         }
-        else if(_action.ReadValue<float>() == 0)
+        else if(buttonPressed && _action.ReadValue<float>() == 0)
         {
             ReleaseButton();
         }
 
-        if (buttonPressed && _crossPoints[pointIndex].IsCompleted())
+        //Go to next step in mimic
+        if (canMimic && buttonPressed && _crossPoints[pointIndex].IsCompleted())
         {
             _crossPoints[pointIndex].Deactivate();
             pointIndex++;
