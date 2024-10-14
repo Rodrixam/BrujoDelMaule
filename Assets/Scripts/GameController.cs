@@ -11,10 +11,20 @@ public class GameController : MonoBehaviour
     [SerializeField]
     CrossController _crossMimic;
 
+    [SerializeField]
+    TueTueSpawnController _tueSpawn;
+
     // Update is called once per frame
     void Update()
     {
-        _crossMimic.canMimic = !_saltBag.canPullSalt;
+        if (_saltBag.canPullSalt || _tueSpawn.summoned)
+        {
+            _crossMimic.canMimic = false;
+        }
+        else
+        {
+            _crossMimic.canMimic = true;
+        }
     }
 
     public void GameOver()

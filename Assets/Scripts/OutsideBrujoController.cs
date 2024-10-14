@@ -8,7 +8,7 @@ public class OutsideBrujoController : MonoBehaviour
     float _killTime;
 
     [SerializeField]
-    OutsideSpawnController _spawnController;
+    ObjectSpawnController _spawnController;
 
     private void Start()
     {
@@ -28,7 +28,6 @@ public class OutsideBrujoController : MonoBehaviour
     IEnumerator KillRoutine()
     {
         yield return new WaitForSeconds(_killTime);
-
     }
 
     public void TryCross()

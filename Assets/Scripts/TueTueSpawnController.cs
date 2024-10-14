@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OutsideSpawnController : MonoBehaviour
+public class TueTueSpawnController : MonoBehaviour
 {
     [SerializeField]
     float timeToTry = 10f;
 
-    [SerializeField][Range(0, 1)]
+    [SerializeField]
+    [Range(0, 1)]
     float spawnChance = 0.5f;
 
     [SerializeField]
-    GameObject brujo;
+    AudioSource _audioSource;
 
     public bool summoned = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         Invoke("TryToSpawn", timeToTry);
@@ -23,13 +23,19 @@ public class OutsideSpawnController : MonoBehaviour
 
     bool TryToSpawn()
     {
-        if(!summoned && Random.value <= spawnChance)
+        if (!summoned && Random.value <= spawnChance)
         {
             summoned = true;
-            brujo.SetActive(true);
+            _audioSource.Play();
         }
 
         Invoke("TryToSpawn", timeToTry);
         return false;
+    }
+
+    public void StopTueTue()
+    {
+        _audioSource.Stop();
+        summoned = false;
     }
 }
