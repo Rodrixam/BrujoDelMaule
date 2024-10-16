@@ -21,44 +21,52 @@ public class SaltBagController : MonoBehaviour
     CONTROLLER grabState = CONTROLLER.none;
     public bool canPullSalt = false;
 
-    GameObject sAux = null;
+    GameObject saltRef = null;
+
+    [SerializeField]
+    Material _defaultMat, _leftMat, _rightMat;
 
     // Update is called once per frame
     void Update()
     {
-        if(grabState != CONTROLLER.none && canPullSalt && sAux == null && _leftAction.ReadValue<float>() > 0)
+        if(grabState != CONTROLLER.none && canPullSalt && saltRef == null && _leftAction.ReadValue<float>() > 0)
         {
             if(grabState == CONTROLLER.left)
             {
-                sAux = Instantiate(_saltHandful, _leftController);
+                saltRef = Instantiate(_saltHandful, _leftController);
             }
             else if(grabState == CONTROLLER.right)
             {
-                sAux = Instantiate(_saltHandful, _leftController);
+                saltRef = Instantiate(_saltHandful, _leftController);
             }
         }
 
-        if(sAux != null && _leftAction.ReadValue<float>() == 0)
+        if(saltRef != null && _leftAction.ReadValue<float>() == 0)
         {
-            sAux.transform.parent = null;
+            saltRef.transform.parent = null;
         }
     }
 
-    public void StartGrab()
+    IEnumerator StartGrab()
     {
+        yield return new WaitForSeconds(0.1f);
+
         if (_anchor.position == _leftController.position)
         {
             grabState = CONTROLLER.left;
+            GetComponent<MeshRenderer>().material = _leftMat;
         }
         else if(_anchor.position == _rightController.position)
         {
             grabState = CONTROLLER.right;
+            GetComponent<MeshRenderer>().material = _rightMat;
         }
     }
 
     public void EndGrab()
     {
         grabState = CONTROLLER.none;
+        GetComponent<MeshRenderer>().material = _defaultMat;
     }
 
     private void OnTriggerEnter(Collider other)
