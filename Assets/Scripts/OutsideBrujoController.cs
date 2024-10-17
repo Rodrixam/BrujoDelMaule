@@ -10,6 +10,9 @@ public class OutsideBrujoController : MonoBehaviour
     [SerializeField]
     ObjectSpawnController _spawnController;
 
+    [SerializeField]
+    GameController _gameController;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -28,10 +31,12 @@ public class OutsideBrujoController : MonoBehaviour
     IEnumerator KillRoutine()
     {
         yield return new WaitForSeconds(_killTime);
+        _gameController.GameOver();
     }
 
     public void TryCross()
     {
+        _spawnController.summoned = false;
         gameObject.SetActive(false);
     }
 }

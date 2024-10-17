@@ -45,11 +45,11 @@ public class CrossController : MonoBehaviour
     void Update()
     {
         //Get input value
-        if (!buttonPressed && _action.ReadValue<float>() == 1)
+        if (canMimic && !buttonPressed && _action.ReadValue<float>() == 1)
         {
             PressButton();
         }
-        else if(buttonPressed && _action.ReadValue<float>() == 0)
+        else if(!canMimic || (buttonPressed && _action.ReadValue<float>() == 0))
         {
             ReleaseButton();
         }
@@ -88,5 +88,10 @@ public class CrossController : MonoBehaviour
         {
             cs.Deactivate();
         }
+    }
+
+    public float ActionValue()
+    {
+        return _action.ReadValue<float>();
     }
 }

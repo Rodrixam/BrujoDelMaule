@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
+    float _timeToFinish = 60;
+
+    [SerializeField]
     SaltBagController _saltBag;
 
     [SerializeField]
@@ -13,6 +16,11 @@ public class GameController : MonoBehaviour
 
     [SerializeField]
     TueTueSpawnController _tueSpawn;
+
+    private void Start()
+    {
+        StartCoroutine(Win());
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +37,13 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(0);
+        StopAllCoroutines();
+        SceneManager.LoadScene(2);
+    }
+
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(_timeToFinish);
+        SceneManager.LoadScene(1);
     }
 }

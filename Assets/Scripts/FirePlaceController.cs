@@ -13,6 +13,7 @@ public class FirePlaceController : MonoBehaviour
         if (other.CompareTag("Salt"))
         {
             fireplaceEvent.Invoke();
+            other.gameObject.SetActive(false);
         }
     }
 }
