@@ -1,0 +1,85 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+
+public class SaltBagController : MonoBehaviour
+{
+    [SerializeField]
+    Transform _anchor;
+
+    [SerializeField]
+    Transform _leftController, _rightController;
+
+    [SerializeField]
+    InputAction _leftAction, _rightAction;
+
+    [SerializeField]
+    GameObject _saltHandful;
+
+    CONTROLLER grabState = CONTROLLER.none;
+    public bool canPullSalt = false;
+
+    GameObject saltRef = null;
+
+    [SerializeField]
+    Material _default, _leftMat, _rightMat;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(grabState != CONTROLLER.none && canPullSalt && saltRef == null && _leftAction.ReadValue<float>() > 0)
+        {
+            if(grabState == CONTROLLER.left)
+            {
+                saltRef = Instantiate(_saltHandful, _leftController);
+            }
+            else if(grabState == CONTROLLER.right)
+            {
+                saltRef = Instantiate(_saltHandful, _leftController);
+            }
+        }
+
+        if(saltRef != null && _leftAction.ReadValue<float>() == 0)
+        {
+            saltRef.transform.parent = null;
+        }
+    }
+
+    public void StartGrab()
+    {
+        if (_anchor.position == _leftController.position)
+        {
+            grabState = CONTROLLER.left;
+            GetComponent<MeshRenderer>().material = _leftMat;
+        }
+        else if(_anchor.position == _rightController.position)
+        {
+            grabState = CONTROLLER.right;
+            GetComponent<MeshRenderer>().material = _rightMat;
+        }
+    }
+
+    public void EndGrab()
+    {
+        grabState = CONTROLLER.none;
+        GetComponent<MeshRenderer>().material = _default;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("CrossCollider"))
+        {
+            canPullSalt = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("CrossCollider"))
+        {
+            canPullSalt = false;
+        }
+    }
+}
