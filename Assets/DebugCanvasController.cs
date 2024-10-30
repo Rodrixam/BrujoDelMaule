@@ -23,7 +23,11 @@ public class DebugCanvasController : MonoBehaviour
 
         if(saltBag.SaltPosition() != null)
         {
-            text.text = "saltPosition\nx: " + saltBag.SaltPosition().Value.x + "\ny: " + saltBag.SaltPosition().Value.y + "\nz: " + saltBag.SaltPosition().Value.z;
+            foreach (Vector3 a in crossMimic.GetLineRendererPoints())
+            {
+                text.text += a.x + " " + a.y + " " + a.z + "\n";
+            }
+            //text.text = "saltPosition\nx: " + saltBag.SaltPosition().Value.x + "\ny: " + saltBag.SaltPosition().Value.y + "\nz: " + saltBag.SaltPosition().Value.z;
         }
         else
         {

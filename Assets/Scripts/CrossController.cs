@@ -8,16 +8,28 @@ using UnityEngine.InputSystem.XR;
 
 public class CrossController : MonoBehaviour
 {
+
     [SerializeField]
     CrossPoint up, down, left, right;
+    [SerializeField]
+    Transform _rightHandTransform;
     CrossPoint[] _crossPoints;
 
+    [Header("Input")]
     [SerializeField]
     InputAction _action;
 
+    [Header("Output")]
     [SerializeField]
     UnityEvent CrossMimic = new UnityEvent();
 
+    [Header("Animation")]
+    [SerializeField]
+    Animator _handAnimator;
+    LineRenderer _lineRenderer;
+    Vector3[] _linePositions = new Vector3[4];
+
+    [Header("Debug")]
     int pointIndex = 0;
     bool buttonPressed = false;
     public bool canMimic = true;
@@ -34,6 +46,10 @@ public class CrossController : MonoBehaviour
 
     void Start()
     {
+        //Get components
+        _lineRenderer = GetComponent<LineRenderer>();
+        _linePositions = GetCrossPointArray();
+
         //Deactivates all points
         _crossPoints = new CrossPoint[4] { up, down, left, right };
         foreach(CrossPoint cs in _crossPoints)
@@ -55,21 +71,48 @@ public class CrossController : MonoBehaviour
         }
 
         //Go to next step in mimic
-        if (canMimic && buttonPressed && _crossPoints[pointIndex].IsCompleted())
+        if (canMimic && buttonPressed)
         {
-            _crossPoints[pointIndex].Deactivate();
-            pointIndex++;
-            if(pointIndex >= 4)
+            _lineRenderer.SetPosition(pointIndex + 1, _rightHandTransform.position);
+
+            if (_crossPoints[pointIndex].IsCompleted())
             {
-                CrossMimic.Invoke();
-                ReleaseButton();
-            }
-            else
-            {
-                _crossPoints[pointIndex].Activate();
+                _crossPoints[pointIndex].Deactivate();
+                pointIndex++;
+
+                if (pointIndex >= 4)
+                {
+                    CrossMimic.Invoke();
+                    ReleaseButton();
+                }
+                else
+                {
+                    _crossPoints[pointIndex].Activate();
+
+                    _lineRenderer.SetPosition(pointIndex, _linePositions[pointIndex]);
+                }
             }
         }
-        
+    }
+
+    Vector3[] GetCrossPointArray()
+    {
+        Vector3[] result = new Vector3[]
+        {
+            up.transform.position,
+            down.transform.position,
+            left.transform.position,
+            right.transform.position,
+        };
+
+        return result;
+    }
+
+    public Vector3[] GetLineRendererPoints()
+    {
+        Vector3[] result = new Vector3[4];
+        _lineRenderer.GetPositions(result);
+        return result;
     }
 
     public void PressButton()
@@ -78,6 +121,10 @@ public class CrossController : MonoBehaviour
 
         pointIndex = 0;
         _crossPoints[pointIndex].Activate();
+
+        _handAnimator.SetBool("DoingCross", true);
+
+        _lineRenderer.SetPosition(pointIndex, _linePositions[pointIndex]);
     }
 
     public void ReleaseButton() 
@@ -88,6 +135,8 @@ public class CrossController : MonoBehaviour
         {
             cs.Deactivate();
         }
+
+        _handAnimator.SetBool("DoingCross", false);
     }
 
     public float ActionValue()
