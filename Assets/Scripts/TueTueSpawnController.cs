@@ -18,7 +18,7 @@ public class TueTueSpawnController : MonoBehaviour
 
     void Start()
     {
-        Invoke("TryToSpawn", timeToTry);
+        Invoke(nameof(TryToSpawn), timeToTry);
     }
 
     bool TryToSpawn()
@@ -29,7 +29,7 @@ public class TueTueSpawnController : MonoBehaviour
             _audioSource.Play();
         }
 
-        Invoke("TryToSpawn", timeToTry);
+        Invoke(nameof(TryToSpawn), timeToTry);
         return false;
     }
 

@@ -1,0 +1,539 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Oculus
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 94b3ff870d003c647a7f537e7061f84e, type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Name
+    value: Right Trigger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Id
+    value: 1d2c48ab-9b34-43a9-9a97-894ca9ece002
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Id
+    value: ddb8f862-c9a6-451e-9e2f-bef00fb80fc3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{RightHand}/triggerButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Action
+    value: Right Trigger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightTrigger.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Name
+    value: Left Trigger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Id
+    value: a7b3c4f6-0526-48f0-b3f5-4a422bcb58c8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Id
+    value: 10baef99-eb98-414a-a02b-173a7d4dd61f
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{LeftHand}/triggerButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Action
+    value: Left Trigger
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftTrigger.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Name
+    value: Right Grip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Id
+    value: b119b75a-27f1-4354-a13b-0c8778ff0b01
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Id
+    value: e46c06d8-119b-4484-84cd-e0f87e7bc5c1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{RightHand}/gripButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Action
+    value: Right Grip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: rightGrip.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Name
+    value: Left Grip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Id
+    value: 2f2f4426-ebd0-4dfe-9a3c-1933b6d7f15d
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Id
+    value: 025d329e-792e-4ab6-8188-2ec61ca43b00
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{LeftHand}/gripButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Action
+    value: Left Grip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: leftGrip.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Name
+    value: A Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Id
+    value: 257c4747-badb-4a50-b8fe-a0e1c985bf6d
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Id
+    value: afa56670-e392-4703-a1e3-d8a8b3d56323
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{RightHand}/primaryButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Action
+    value: A Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: aButton.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Name
+    value: B Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Id
+    value: fd843da5-cfa4-4ac6-a6df-ac6ebdbd31d5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Id
+    value: eacced30-09d9-4b34-9686-9a97b8b4b0d5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{RightHand}/secondaryButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Action
+    value: B Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: bButton.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Name
+    value: X Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Id
+    value: 5cfe53bf-1c83-42ef-89a9-6ed265e716d9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Id
+    value: 81f1361e-7961-4a25-afc6-2d457f088fba
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{LeftHand}/primaryButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Action
+    value: X Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: xButton.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Name
+    value: Y Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Type
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_ExpectedControlType
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Id
+    value: 20af6b43-2b6b-46b5-b1f5-3a9881a6eecd
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Id
+    value: 16815ea0-8bdb-4680-93b0-24312f03044c
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Path
+    value: <XRController>{LeftHand}/secondaryButton
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Interactions
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Processors
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Groups
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Action
+    value: Y Button
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_SingletonActionBindings.Array.data[0].m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: yButton.m_Flags
+    value: 0
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
