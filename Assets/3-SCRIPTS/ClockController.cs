@@ -8,7 +8,19 @@ public class ClockController : MonoBehaviour
     [SerializeField]
     Transform hour, minute;
 
+    [SerializeField]
+    bool automatic = false;
+
     float maxTime;
+
+    private void Update()
+    {
+        if (automatic)
+        {
+            minute.Rotate(0, 1f  * Time.deltaTime, 0, Space.Self);
+            hour.Rotate(0, 1f/60f * Time.deltaTime, 0, Space.Self);
+        }
+    }
 
     public void SetMaxTime(float maxTime)
     {

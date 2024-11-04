@@ -93,7 +93,7 @@ public class InputTracker : MonoBehaviour
 
     public bool GetInputDown(ControllerButton input)
     {
-        if (!previousStates[(int)input] && currentStates[(int)input])
+        if (!previousStates[(int)input] && inputs[(int)input].ReadValue<float>() > 0)
         {
             return true;
         }
@@ -111,7 +111,7 @@ public class InputTracker : MonoBehaviour
 
     public bool GetInputUp(ControllerButton input)
     {
-        if (previousStates[(int)input] && !currentStates[(int)input])
+        if (previousStates[(int)input] && inputs[(int)input].ReadValue<float>() <= 0)
         {
             return true;
         }

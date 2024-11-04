@@ -28,6 +28,9 @@ public class CinematicController : MonoBehaviour
     List<RequirementEvent> requirements = new List<RequirementEvent>();
 
     [SerializeField]
+    List<GeneralEvent> unityEvents = new List<GeneralEvent>();
+
+    [SerializeField]
     TextMeshProUGUI subtitles;
 
     Coroutine writing = null;
@@ -102,6 +105,15 @@ public class CinematicController : MonoBehaviour
             if (index == ae.GetIndex())
             {
                 ae.Play();
+            }
+        }
+
+        //General events
+        foreach (GeneralEvent ge in unityEvents)
+        {
+            if (index == ge.GetIndex())
+            {
+                ge.Play();
             }
         }
 
@@ -181,6 +193,9 @@ public class RequirementEvent
     [SerializeField]
     UnityEvent startEvent;
 
+    [SerializeField]
+    UnityEvent finishEvent;
+
     bool active = false;
     bool accomplished = false;
 
@@ -197,6 +212,7 @@ public class RequirementEvent
         {
             accomplished = true;
             active = false;
+            finishEvent.Invoke();
         }
     }
 
@@ -243,6 +259,26 @@ public class AudioEvent
     public void Stop()
     {
         source.Stop();
+    }
+
+    public int GetIndex()
+    {
+        return index;
+    }
+}
+
+[Serializable]
+public class GeneralEvent
+{
+    [SerializeField]
+    UnityEvent uEvent;
+
+    [SerializeField]
+    int index;
+
+    public void Play()
+    {
+        uEvent.Invoke();
     }
 
     public int GetIndex()
