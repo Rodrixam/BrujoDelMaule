@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
     float _timeToFinish = 60;
 
     [SerializeField]
+    ClockController clock = null;
+
+    [SerializeField]
     SaltBagController _saltBag;
 
     [SerializeField]

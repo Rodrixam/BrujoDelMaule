@@ -27,19 +27,23 @@ public class DebugController : MonoBehaviour
     void Update()
     {
         //Load next scene
-        if (inputTracker.GetInputDown(ControllerButton.aButton))
+        if (inputTracker.GetInputDown(ControllerButton.xButton))
         {
+            Debug.Log("Current scene index " + SceneManager.GetActiveScene().buildIndex + " - Scene count " + SceneManager.sceneCountInBuildSettings);
             int index = SceneManager.GetActiveScene().buildIndex + 1;
 
-            if(index >= SceneManager.sceneCount){ index = 0; }
+            if(index >= SceneManager.sceneCountInBuildSettings) { index = 0; }
 
+            Debug.Log("Loading next scene " + index);
             SceneManager.LoadScene(index);
         }
 
         //Reload current scene
-        if (inputTracker.GetInputDown(ControllerButton.bButton))
+        if (inputTracker.GetInputDown(ControllerButton.yButton))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            int index = SceneManager.GetActiveScene().buildIndex;
+            Debug.Log("Reloading scene " + index);
+            SceneManager.LoadScene(index);
         }
     }
 }

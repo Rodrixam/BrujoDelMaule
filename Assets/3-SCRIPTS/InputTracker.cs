@@ -122,6 +122,11 @@ public class InputTracker : MonoBehaviour
     {
         SetInputState();
     }
+
+    private void Update()
+    {
+        SetInputState();
+    }
 }
 
 public enum ControllerButton
