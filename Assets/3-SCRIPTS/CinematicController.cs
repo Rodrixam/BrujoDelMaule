@@ -13,13 +13,22 @@ public class CinematicController : MonoBehaviour
     int index = 0;
 
     [SerializeField]
+    bool startAutomatically = true;
+
+    [SerializeField]
+    float timeToStart = 0;
+
+    [SerializeField]
     float textSpeed = 0.1f;
 
     [SerializeField]
-    List<Animator> animators = new List<Animator>();
+    TextMeshProUGUI subtitles;
 
     [SerializeField]
     List<string> lines = new List<string>();
+
+    [SerializeField]
+    List<Animator> animators = new List<Animator>();
 
     [SerializeField]
     List<AudioEvent> audioEvents = new List<AudioEvent>();
@@ -30,14 +39,12 @@ public class CinematicController : MonoBehaviour
     [SerializeField]
     List<GeneralEvent> unityEvents = new List<GeneralEvent>();
 
-    [SerializeField]
-    TextMeshProUGUI subtitles;
 
     Coroutine writing = null;
 
     private void Awake()
     {
-        inputTracker = GameObject.Find("DebugController").GetComponent<InputTracker>();
+        inputTracker = FindAnyObjectByType<InputTracker>();
     }
 
     private void Start()
@@ -51,7 +58,10 @@ public class CinematicController : MonoBehaviour
             }
         }
 
-        NextStep();
+        if (startAutomatically)
+        {
+            Invoke("NextStep", timeToStart);
+        }
     }
 
     // Update is called once per frame
@@ -96,7 +106,7 @@ public class CinematicController : MonoBehaviour
         //Audio events
         foreach (AudioEvent ae in audioEvents)
         {
-            if (index - 1 == ae.GetIndex())
+            if (index == ae.GetIndex())
             {
                 ae.Stop();
                 continue;

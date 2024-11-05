@@ -12,6 +12,7 @@ public class ClockController : MonoBehaviour
     bool automatic = false;
 
     float maxTime;
+    float currentTime = 0;
 
     private void Update()
     {
@@ -19,6 +20,11 @@ public class ClockController : MonoBehaviour
         {
             minute.Rotate(0, 1f  * Time.deltaTime, 0, Space.Self);
             hour.Rotate(0, 1f/60f * Time.deltaTime, 0, Space.Self);
+        }
+        else
+        {
+            currentTime += Time.deltaTime;
+            SetTime(currentTime);
         }
     }
 
@@ -31,7 +37,7 @@ public class ClockController : MonoBehaviour
     {
         float normTime = maxTime / currentTime;
 
-        minute.localRotation = Quaternion.Euler(90 + 2160 * normTime, minute.localRotation.eulerAngles.y, minute.localRotation.eulerAngles.z);
-        hour.localRotation = Quaternion.Euler(90 + 180 * normTime, hour.localRotation.eulerAngles.y, hour.localRotation.eulerAngles.z);
+        minute.localRotation = Quaternion.Euler(minute.localRotation.eulerAngles.x, 90 + 2160 * normTime, minute.localRotation.eulerAngles.z);
+        hour.localRotation = Quaternion.Euler(minute.localRotation.eulerAngles.x, 90 + 180 * normTime, hour.localRotation.eulerAngles.z);
     }
 }

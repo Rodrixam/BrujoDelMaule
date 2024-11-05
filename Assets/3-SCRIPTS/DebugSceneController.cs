@@ -3,25 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DebugController : MonoBehaviour
+public class DebugSceneController : MonoBehaviour
 {
     InputTracker inputTracker;
 
-    private void Awake()
-    {
-        GameObject aux = GameObject.Find("DebugController");
-        if (aux != null && aux != gameObject)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void Start()
     {
-        inputTracker = GetComponent<InputTracker>();
+        inputTracker =  FindAnyObjectByType<InputTracker>();
     }
 
     void Update()

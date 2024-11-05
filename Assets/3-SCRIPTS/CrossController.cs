@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.XR;
@@ -93,6 +94,11 @@ public class CrossController : MonoBehaviour
                 }
             }
         }
+
+        if (FindAnyObjectByType<InputTracker>().GetInputDown(ControllerButton.rightTrigger))
+        {
+            SendRaycast();
+        }
     }
 
     Vector3[] GetCrossPointArray()
@@ -122,7 +128,10 @@ public class CrossController : MonoBehaviour
         pointIndex = 0;
         _crossPoints[pointIndex].Activate();
 
-        _handAnimator.SetBool("DoingCross", true);
+        if (_handAnimator != null)
+        {
+            _handAnimator.SetBool("DoingCross", true);
+        }
 
         _lineRenderer.SetPosition(pointIndex, _linePositions[pointIndex]);
     }
@@ -136,11 +145,34 @@ public class CrossController : MonoBehaviour
             cs.Deactivate();
         }
 
-        _handAnimator.SetBool("DoingCross", false);
+        if(_handAnimator != null)
+        {
+            _handAnimator.SetBool("DoingCross", false);
+        }
     }
 
     public float ActionValue()
     {
         return _action.ReadValue<float>();
     }
+
+    public void SendRaycast()
+    {
+        RaycastHit output;
+        Physics.Raycast(transform.position, transform.forward, out output, 100);
+
+        if (output.collider != null &&  output.collider.CompareTag("Brujo"))
+        {
+            output.collider.gameObject.GetComponent<OutsideBrujoController>().TryCross();
+        }
+
+        Debug.DrawRay(transform.position, transform.forward * output.distance, Color.yellow);
+    }
+
+    /*
+    private void OnDrawGizmos()
+    {
+        Vector3 origin = transform.position;
+        Gizmos.DrawLine(origin, origin + transform.forward);
+    }//*/
 }

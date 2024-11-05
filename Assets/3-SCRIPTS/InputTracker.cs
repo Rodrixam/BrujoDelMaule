@@ -31,6 +31,13 @@ public class InputTracker : MonoBehaviour
 
     private void Awake()
     {
+        GameObject aux = FindAnyObjectByType<InputTracker>().gameObject;
+        if (aux != null && aux != gameObject)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
 
         rightTrigger.Rename("rightTrigger");

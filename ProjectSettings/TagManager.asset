@@ -8,6 +8,7 @@ TagManager:
   - CrossCollider
   - Salt
   - DontDestroy
+  - Brujo
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - NonReflective
   - ControllerSphere
   - Door
-  - 
-  - 
+  - SeeThrough
+  - Brujo
   - 
   - 
   - 

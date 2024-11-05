@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField]
     float _timeToFinish = 60;
+
+    [SerializeField]
+    UnityEvent winEvent;
+
+    [SerializeField]
+    UnityEvent loseEvent;
 
     [SerializeField]
     ClockController clock = null;
@@ -23,6 +30,11 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Win());
+
+        if (clock != null)
+        {
+            clock.SetMaxTime(_timeToFinish);
+        }
     }
 
     // Update is called once per frame
@@ -41,12 +53,12 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         StopAllCoroutines();
-        SceneManager.LoadScene(2);
+        loseEvent.Invoke();
     }
 
     IEnumerator Win()
     {
         yield return new WaitForSeconds(_timeToFinish);
-        SceneManager.LoadScene(1);
+        winEvent.Invoke();
     }
 }

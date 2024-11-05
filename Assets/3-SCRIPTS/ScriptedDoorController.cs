@@ -28,7 +28,7 @@ public class ScriptedDoorController : MonoBehaviour
 
     private void Awake()
     {
-        inputTracker = GameObject.Find("DebugController").GetComponent<InputTracker>();
+        inputTracker = FindAnyObjectByType<InputTracker>();
     }
 
     // Update is called once per frame
