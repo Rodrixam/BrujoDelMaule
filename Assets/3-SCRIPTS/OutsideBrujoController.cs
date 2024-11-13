@@ -5,6 +5,9 @@ using UnityEngine;
 public class OutsideBrujoController : MonoBehaviour
 {
     [SerializeField]
+    List<Vector3> _possiblePositions;
+
+    [SerializeField]
     float _killTime;
 
     [SerializeField]
@@ -20,6 +23,7 @@ public class OutsideBrujoController : MonoBehaviour
 
     private void OnEnable()
     {
+        transform.position = _possiblePositions[Random.Range(0, _possiblePositions.Count)];
         StartCoroutine(KillRoutine());
     }
 
