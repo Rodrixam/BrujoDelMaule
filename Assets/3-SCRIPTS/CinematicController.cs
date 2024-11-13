@@ -52,7 +52,7 @@ public class CinematicController : MonoBehaviour
         //Activate new requirements
         foreach (RequirementEvent re in requirements)
         {
-            if (index == re.GetIndex() && re.DoesActivateImmediately())
+            if (re.HasIndex(index) && re.DoesActivateImmediately())
             {
                 re.Activate();
             }
@@ -77,17 +77,18 @@ public class CinematicController : MonoBehaviour
             {
                 NextStep();
             }
+            FulfillRequirement("Show button");
         }
     }
 
-    void NextStep()
+    public void NextStep()
     {
         //////////////// OPENING //////////////// 
         Debug.Log("Opening step " + index);
         //Interrupt new step until requirements are fulfilled
         foreach (RequirementEvent re in requirements)
         {
-            if (index == re.GetIndex() && !re.IsEventFulfilled())
+            if (re.HasIndex(index) && !re.IsEventFulfilled())
             {
                 Debug.Log("Step " + index + " can't open");
                 return;
@@ -121,7 +122,7 @@ public class CinematicController : MonoBehaviour
         //General events
         foreach (GeneralEvent ge in unityEvents)
         {
-            if (index == ge.GetIndex())
+            if (ge.HasIndex(index) && !ge.GetEndOfLine())
             {
                 ge.Play();
             }
@@ -141,7 +142,7 @@ public class CinematicController : MonoBehaviour
         //Activate new requirements
         foreach (RequirementEvent re in requirements)
         {
-            if (index == re.GetIndex() && re.DoesActivateImmediately())
+            if (re.HasIndex(index) && re.DoesActivateImmediately())
             {
                 re.Activate();
             }
@@ -161,6 +162,15 @@ public class CinematicController : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
 
+        //General events
+        foreach (GeneralEvent ge in unityEvents)
+        {
+            if (ge.HasIndex(index) && ge.GetEndOfLine())
+            {
+                ge.Play();
+            }
+        }
+
         writing = null;
     }
 
@@ -172,6 +182,15 @@ public class CinematicController : MonoBehaviour
             writing = null;
 
             subtitles.text = lines[index - 1];
+
+            //General events
+            foreach (GeneralEvent ge in unityEvents)
+            {
+                if (ge.HasIndex(index - 1) && ge.GetEndOfLine())
+                {
+                    ge.Play();
+                }
+            }
         }
     }
 
@@ -192,7 +211,7 @@ public class CinematicController : MonoBehaviour
 public class RequirementEvent
 {
     [SerializeField]
-    int index;
+    List<int> indexes;
 
     [SerializeField]
     string identifier;
@@ -236,9 +255,9 @@ public class RequirementEvent
         return activateImmediately;
     }
 
-    public int GetIndex()
+    public bool HasIndex(int i)
     {
-        return index;
+        return indexes.Contains(i);
     }
 
     public string GetIdentifier()
@@ -284,15 +303,26 @@ public class GeneralEvent
     UnityEvent uEvent;
 
     [SerializeField]
-    int index;
+    List<int> indexes;
+
+    /// <summary>
+    /// By default a GeneralEvent is played at the start of the line writing, check this to make it play when it finishes writing.
+    /// </summary>
+    [SerializeField]
+    bool executeAtEndOfLine = false;
 
     public void Play()
     {
         uEvent.Invoke();
     }
 
-    public int GetIndex()
+    public bool HasIndex(int i)
     {
-        return index;
+        return indexes.Contains(i);
+    }
+
+    public bool GetEndOfLine()
+    {
+        return executeAtEndOfLine;
     }
 }

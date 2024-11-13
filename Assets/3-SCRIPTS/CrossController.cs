@@ -19,6 +19,7 @@ public class CrossController : MonoBehaviour
     [Header("Input")]
     [SerializeField]
     InputAction _action;
+    InputTracker inputTracker;
 
     [Header("Output")]
     [SerializeField]
@@ -43,6 +44,11 @@ public class CrossController : MonoBehaviour
     private void OnDisable()
     {
         _action.Disable();
+    }
+
+    private void Awake()
+    {
+        inputTracker = FindAnyObjectByType<InputTracker>();
     }
 
     void Start()
@@ -95,7 +101,7 @@ public class CrossController : MonoBehaviour
             }
         }
 
-        if (FindAnyObjectByType<InputTracker>().GetInputDown(ControllerButton.rightTrigger))
+        if (inputTracker != null && inputTracker.GetInputDown(ControllerButton.rightTrigger))
         {
             SendRaycast();
         }
