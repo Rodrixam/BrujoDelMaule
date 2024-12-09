@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Subtitles
+    uniqueID: 3862873883
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

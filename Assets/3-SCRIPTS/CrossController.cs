@@ -101,6 +101,12 @@ public class CrossController : MonoBehaviour
             }
         }
 
+        //Debug
+        if (inputTracker.GetInput(ControllerButton.leftTrigger) && inputTracker.GetInputDown(ControllerButton.rightTrigger))
+        {
+            CrossMimic.Invoke();
+        }
+
         if (inputTracker != null && inputTracker.GetInputDown(ControllerButton.rightTrigger))
         {
             SendRaycast();

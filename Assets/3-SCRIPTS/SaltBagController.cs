@@ -31,6 +31,9 @@ public class SaltBagController : MonoBehaviour
     [SerializeField]
     Material _defaultMat, _leftMat, _rightMat, _pullMat;
 
+    [SerializeField]
+    MeshRenderer _mesh;
+
 
     private void OnEnable()
     {

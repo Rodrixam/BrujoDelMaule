@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,13 +20,10 @@ public class CinematicController : MonoBehaviour
     float timeToStart = 0;
 
     [SerializeField]
-    float textSpeed = 0.1f;
-
-    [SerializeField]
     TextMeshProUGUI subtitles;
 
     [SerializeField]
-    List<string> lines = new List<string>();
+    List<DialogueLine> lines = new List<DialogueLine>();
 
     [SerializeField]
     List<Animator> animators = new List<Animator>();
@@ -69,11 +67,7 @@ public class CinematicController : MonoBehaviour
     {
         if (inputTracker.GetInputDown(ControllerButton.aButton))
         {
-            if(writing != null)
-            {
-                SpeedUpWriting();
-            }
-            else
+            if(writing == null)
             {
                 NextStep();
             }
@@ -107,11 +101,12 @@ public class CinematicController : MonoBehaviour
         //Audio events
         foreach (AudioEvent ae in audioEvents)
         {
+            /*
             if (index == ae.GetIndex())
             {
                 ae.Stop();
                 continue;
-            }
+            }//*/
 
             if (index == ae.GetIndex())
             {
@@ -156,10 +151,10 @@ public class CinematicController : MonoBehaviour
             yield break;
         }
 
-        for(int i = 0; i <= lines[index].Length; i++)
+        for(int i = 0; i <= lines[index].GetLine().Length; i++)
         {
-            subtitles.text = lines[index].Substring(0, i);
-            yield return new WaitForSeconds(textSpeed);
+            subtitles.text = lines[index].GetLine().Substring(0, i);
+            yield return new WaitForSeconds(lines[index].GetTime() / lines[index].GetLine().Length);
         }
 
         //General events
@@ -174,6 +169,7 @@ public class CinematicController : MonoBehaviour
         writing = null;
     }
 
+    /*
     void SpeedUpWriting()
     {
         if (writing != null)
@@ -181,7 +177,7 @@ public class CinematicController : MonoBehaviour
             StopCoroutine(writing);
             writing = null;
 
-            subtitles.text = lines[index - 1];
+            subtitles.text = lines[index - 1].GetLine();
 
             //General events
             foreach (GeneralEvent ge in unityEvents)
@@ -192,7 +188,7 @@ public class CinematicController : MonoBehaviour
                 }
             }
         }
-    }
+    }//*/
 
     public void FulfillRequirement(string identifier)
     {
@@ -204,6 +200,42 @@ public class CinematicController : MonoBehaviour
                 break;
             }
         }
+    }
+}
+
+[Serializable]
+public class DialogueLine
+{
+    [SerializeField]
+    string line;
+
+    [SerializeField]
+    float time;
+
+    float startTime = -1;
+
+    public void StartLine()
+    {
+        startTime = Time.time;
+    }
+
+    public string GetLine()
+    {
+        return line;
+    }
+
+    public float GetTime()
+    {
+        return time;
+    }
+
+    public bool IsCompleted()
+    {
+        if(startTime != -1 && (Time.time - startTime) >= time)
+        {
+            return true;
+        }
+        return false;
     }
 }
 
@@ -299,6 +331,9 @@ public class AudioEvent
 [Serializable]
 public class GeneralEvent
 {
+    [SerializeField]
+    string description;
+
     [SerializeField]
     UnityEvent uEvent;
 
