@@ -31,9 +31,6 @@ public class SaltBagController : MonoBehaviour
     [SerializeField]
     Material _defaultMat, _leftMat, _rightMat, _pullMat;
 
-    [SerializeField]
-    MeshRenderer _mesh;
-
 
     private void OnEnable()
     {
@@ -65,11 +62,9 @@ public class SaltBagController : MonoBehaviour
         {
             if ((grabState == CONTROLLER.left && _rightAction.ReadValue<float>() == 0) || (grabState == CONTROLLER.right && _leftAction.ReadValue<float>() == 0))
             {
+                saltRef.GetComponent<Rigidbody>().isKinematic = false;
+                Destroy(saltRef, 2);
                 saltRef.transform.parent = null;
-            }
-
-            if (!saltRef.activeSelf)
-            {
                 saltRef = null;
             }
         }

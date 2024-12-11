@@ -16,6 +16,11 @@ public class OutsideBrujoController : MonoBehaviour
     [SerializeField]
     GameController _gameController;
 
+    [SerializeField]
+    JumpscareScript _jumpscareScript;
+    [SerializeField]
+    bool wolf = false;
+
     private void Start()
     {
         gameObject.SetActive(false);
@@ -35,6 +40,10 @@ public class OutsideBrujoController : MonoBehaviour
     IEnumerator KillRoutine()
     {
         yield return new WaitForSeconds(_killTime);
+        if (wolf)
+        {
+            _jumpscareScript.wolfJumpscare = true;
+        }
         _gameController.GameOver();
     }
 

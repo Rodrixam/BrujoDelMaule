@@ -14,28 +14,44 @@ public class TueTueSpawnController : MonoBehaviour
     [SerializeField]
     AudioSource _audioSource;
 
+    [SerializeField]
+    JumpscareScript _jumpscareScript;
+
     public bool summoned = false;
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 
     void Start()
     {
-        Invoke(nameof(TryToSpawn), timeToTry);
+        StartCoroutine(TryToSpawn());
     }
 
-    bool TryToSpawn()
+    IEnumerator TryToSpawn()
     {
+        yield return new WaitForSeconds(timeToTry);
         if (!summoned && Random.value <= spawnChance)
         {
+            _jumpscareScript.tuetueActivated = true;
             summoned = true;
             _audioSource.Play();
         }
 
-        Invoke(nameof(TryToSpawn), timeToTry);
-        return false;
+        StartCoroutine(nameof(TryToSpawn));
     }
 
-    public void StopTueTue()
+    public void StopTueTue(bool deactivateJumpscare = true)
     {
+        if (deactivateJumpscare)
+        {
+            _jumpscareScript.tuetueActivated = false;
+        }
         _audioSource.Stop();
         summoned = false;
+
+        StopAllCoroutines();
+        StartCoroutine(TryToSpawn());
     }
 }

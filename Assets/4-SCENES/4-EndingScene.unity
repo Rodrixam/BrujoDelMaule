@@ -96,8 +96,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 497bed0c445617f43ac74e7f7defe1a2, type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e8055cc4028f217408bf8433ef771c92, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: c6f989ac8d27a504293e464a4a41cabd, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1766309413}
     m_Modifications:
+    - target: {fileID: 842252566, guid: 8986ac8756dd43147abb4d9807433c94, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 436950025568814515, guid: 8986ac8756dd43147abb4d9807433c94, type: 3}
       propertyPath: m_Name
       value: Fireplace_Modern
@@ -983,7 +987,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299639867}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
@@ -1027,7 +1031,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1046,13 +1050,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299639867}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09696548, y: 0.21536943, z: -0.021496726, w: 0.9714688}
+  m_LocalRotation: {x: 0.13654907, y: 0.21431214, z: -0.030272199, w: 0.96669966}
   m_LocalPosition: {x: 0, y: 10.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 11.4, y: 25, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.08, y: 25, z: 0}
 --- !u!114 &299639870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2489,6 @@ GameObject:
   - component: {fileID: 628043381}
   - component: {fileID: 628043382}
   - component: {fileID: 628043383}
-  - component: {fileID: 628043384}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -2681,6 +2684,36 @@ MonoBehaviour:
           m_CallState: 2
     indexes: 0200000003000000040000000500000006000000
     executeAtEndOfLine: 1
+  - description: Back to main menu
+    uEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 628043383}
+          m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+          m_MethodName: SetTime
+          m_Mode: 4
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 3-MainScene
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 628043383}
+          m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
+          m_MethodName: LoadScene
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 2
+            m_StringArgument: 3-MainScene
+            m_BoolArgument: 1
+          m_CallState: 2
+    indexes: 06000000
+    executeAtEndOfLine: 1
 --- !u!114 &628043382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2688,7 +2721,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628043379}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6014ccd6b36deee4b95022cb93c76bbf, type: 3}
   m_Name: 
@@ -2705,102 +2738,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebee77293486c9f4199053b7003ccee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &628043384
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628043379}
-  m_Enabled: 0
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dca369c6cb6dadc418ffd1aac386971c, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &674962998
 GameObject:
   m_ObjectHideFlags: 0
@@ -11645,7 +11582,6 @@ MonoBehaviour:
   _leftMat: {fileID: 2100000, guid: 533d4b6bbd074894a92fa9c83da046e4, type: 2}
   _rightMat: {fileID: 2100000, guid: 3951bb5d16664fd469823373e3ac96c5, type: 2}
   _pullMat: {fileID: 2100000, guid: d6dcd5e960d184b45bad1918322ff485, type: 2}
-  _mesh: {fileID: 0}
 --- !u!114 &1556525948
 MonoBehaviour:
   m_ObjectHideFlags: 0

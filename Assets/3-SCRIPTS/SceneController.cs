@@ -28,6 +28,11 @@ public class SceneController : MonoBehaviour
         StartCoroutine(LoadSceneRoutine(SceneManager.GetActiveScene().buildIndex + 1, time));
     }
 
+    public void ReloadCurrentScene()
+    {
+        StartCoroutine(LoadSceneRoutine(SceneManager.GetActiveScene().buildIndex, time));
+    }
+
     IEnumerator LoadSceneRoutine(int index, float time = 0)
     {
         if(time != 0)
