@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScriptedDoorController : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class ScriptedDoorController : MonoBehaviour
     [SerializeField]
     bool moving = false;
 
+    [SerializeField]
+    bool openAutomatically = false;
+    bool open = false;
+
     private void Awake()
     {
         inputTracker = FindAnyObjectByType<InputTracker>();
@@ -39,6 +44,7 @@ public class ScriptedDoorController : MonoBehaviour
             if((handRef == CONTROLLER.left && inputTracker.GetInput(ControllerButton.leftGrip)) || (handRef == CONTROLLER.right && inputTracker.GetInput(ControllerButton.rightGrip)) || moving)
             {
                 stillGrabbed = true;
+                open = true;
 
                 Vector3 dir = handTransform.position - doorBody.position;
                 float angle = Vector3.SignedAngle(Quaternion.AngleAxis(doorGlobal.rotation.eulerAngles.y, Vector3.up) * Vector3.forward, dir, Vector3.up);
@@ -67,6 +73,18 @@ public class ScriptedDoorController : MonoBehaviour
                     handTransform = null;
 
                     doorMaterial.material = _defaultMat;
+                }
+
+                if (open)
+                {
+                    //ROTAR HASTA EL PUNTO DE COMIENZO, OSEA CERRAR, Y LUEGO HACER OPEN FALSO
+                    float rotation = doorBody.localRotation.eulerAngles.y - 10 * Time.deltaTime;
+                    if(rotation < 0)
+                    {
+                        rotation = 0;
+                        open = false;
+                    }
+                    doorBody.localRotation = Quaternion.Euler(0, rotation, 0);
                 }
             }
         }

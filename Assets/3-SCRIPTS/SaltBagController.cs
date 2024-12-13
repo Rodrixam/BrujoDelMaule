@@ -89,6 +89,8 @@ public class SaltBagController : MonoBehaviour
             _leftInteractor.interactionLayers = InteractionLayerMask.NameToLayer("Default");
             GetComponent<MeshRenderer>().material = _rightMat;
         }
+
+        GetComponent<Collider>().isTrigger = true;
     }
 
     public void EndGrab()
@@ -97,6 +99,7 @@ public class SaltBagController : MonoBehaviour
         _leftInteractor.interactionLayers = InteractionLayerMask.GetMask("Default", "Salt");
         _rightInteractor.interactionLayers = InteractionLayerMask.GetMask("Default", "Salt");
         GetComponent<MeshRenderer>().material = _defaultMat;
+        GetComponent<Collider>().isTrigger = false;
     }
 
     private void OnTriggerEnter(Collider other)

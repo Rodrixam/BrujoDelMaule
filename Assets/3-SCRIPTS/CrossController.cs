@@ -82,10 +82,17 @@ public class CrossController : MonoBehaviour
         {
             _lineRenderer.SetPosition(pointIndex + 1, _rightHandTransform.position);
 
+            _linePositions = GetCrossPointArray();
+            for(int i = pointIndex; i >= 0; i--)
+            {
+                _lineRenderer.SetPosition(i, _linePositions[i]);
+            }
+
             if (_crossPoints[pointIndex].IsCompleted())
             {
                 _crossPoints[pointIndex].Deactivate();
                 pointIndex++;
+                //_lineRenderer.positionCount = pointIndex + 2;
 
                 if (pointIndex >= 4)
                 {
@@ -144,8 +151,10 @@ public class CrossController : MonoBehaviour
         {
             _handAnimator.SetBool("DoingCross", true);
         }
-
+        /*
+        _lineRenderer.positionCount = 2;
         _lineRenderer.SetPosition(pointIndex, _linePositions[pointIndex]);
+        _lineRenderer.SetPosition(pointIndex + 1, _linePositions[pointIndex]);//*/
     }
 
     public void ReleaseButton() 
@@ -161,6 +170,8 @@ public class CrossController : MonoBehaviour
         {
             _handAnimator.SetBool("DoingCross", false);
         }
+
+        _lineRenderer.positionCount = 0;
     }
 
     public float ActionValue()

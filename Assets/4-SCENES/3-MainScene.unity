@@ -208,9 +208,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 436950025568814515, guid: 8986ac8756dd43147abb4d9807433c94, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 736644724}
-    - targetCorrespondingSourceObject: {fileID: 436950025568814515, guid: 8986ac8756dd43147abb4d9807433c94, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 736644723}
   m_SourcePrefab: {fileID: 100100000, guid: 8986ac8756dd43147abb4d9807433c94, type: 3}
 --- !u!4 &10005216 stripped
@@ -1494,8 +1491,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: CrossMimic.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 81f0ee04-1494-4ca4-9a50-16198c4b90f9
+      objectReference: {fileID: 0}
+    - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Keyboard>/l
+      objectReference: {fileID: 0}
+    - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Action
       objectReference: {fileID: 0}
     - target: {fileID: 241463974208722693, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: CrossMimic.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1577,6 +1590,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4778211696441940833, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_TeleportInteractor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4835914851655269382, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -1585,9 +1602,53 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5033801203051696737, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RayInteractors.Array.data[1].m_Interactor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033801203051696737, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_RayInteractors.Array.data[3].m_Interactor
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5462521862308726258, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5663893676086941514, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_TeleportInteractor
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.126
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125223495237615970, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.409
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958800441729551374, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Positions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117859484057379734, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2708,14 +2769,14 @@ MonoBehaviour:
       - m_Target: {fileID: 628043383}
         m_TargetAssemblyTypeName: TueTueSpawnController, Assembly-CSharp
         m_MethodName: StopTueTue
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 602490119}
         m_TargetAssemblyTypeName: FadeController, Assembly-CSharp
@@ -3566,27 +3627,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!65 &736644724
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736644721}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.7165729, y: 0.41412354, z: 0.5548864}
-  m_Center: {x: 0.004755527, y: 0.36331952, z: 0.33859083}
 --- !u!1 &756192406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,7 +5619,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.5
+  m_Radius: 5
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &1285092556
 MonoBehaviour:
@@ -6452,7 +6492,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: 90e25a43-c633-4bb7-9c26-fdeb0a9a8df7
-      m_Path: <Keyboard>/semicolon
+      m_Path: <Keyboard>/l
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -6477,7 +6517,7 @@ MonoBehaviour:
       m_Flags: 0
     - m_Name: 
       m_Id: f10b719d-af1f-4581-b4e4-125bd37bbaad
-      m_Path: <Keyboard>/l
+      m_Path: <Keyboard>/k
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -14093,6 +14133,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4530099405455441187, guid: 7935a407989bb574fb6ffe293f733efc, type: 3}
+      propertyPath: openAutomatically
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5706171375238764176, guid: 7935a407989bb574fb6ffe293f733efc, type: 3}
       propertyPath: m_Name
       value: Door_scripted (1)
@@ -14669,7 +14713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8972429911776725831, guid: d4104fb214a7e1a40b9b8b1bacc3b47e, type: 3}
       propertyPath: _killTime
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8972429911776725831, guid: d4104fb214a7e1a40b9b8b1bacc3b47e, type: 3}
       propertyPath: _gameController
@@ -14800,7 +14844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062307027655806560, guid: 786f4c7f092a19440931894723c288dc, type: 3}
       propertyPath: _killTime
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8062307027655806560, guid: 786f4c7f092a19440931894723c288dc, type: 3}
       propertyPath: _gameController
